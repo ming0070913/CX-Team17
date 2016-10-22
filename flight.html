@@ -189,7 +189,7 @@
 
             </div>
 
-            <div id="stage1" class="stages" style="position:relative;">
+            <div id="stage1" class="stages" style="position:relative;display:none;">
               <div id="pager" style="width:33%;height:10px;background:#7c133c;margin-top:3px;"></div>
 
               <div class="swiper-container">
@@ -213,8 +213,8 @@
                     <!-- This is a box ends -->
                     <!-- This is a box -->
                     <div class="daybox">
-                      <div class="big font1">Prepare your Currency</div>
-                      <div class="small font2">Remember to prepare your Pounds for UK</div>
+                      <div class="big font1">Browse Movies</div>
+                      <div class="small font2">Why not pick some movies for the flight</div>
                       <div class="action"><img src="img/go.png" style="height:30px" /></div>
                     </div>
                     <!-- This is a box ends -->
@@ -234,6 +234,13 @@
                     <div class="daybox" onclick="showModal($('#service-picker'));">
                       <div class="big font1">Experience Upgrade</div>
                       <div class="small font2">Upgrade your flight service</div>
+                      <div class="action"><img src="img/go.png" style="height:30px" /></div>
+                    </div>
+                    <!-- This is a box ends -->
+                    <!-- This is a box -->
+                    <div class="daybox">
+                      <div class="big font1">Prepare your Currency</div>
+                      <div class="small font2">Remember to prepare your Pounds for UK</div>
                       <div class="action"><img src="img/go.png" style="height:30px" /></div>
                     </div>
                     <!-- This is a box ends -->
@@ -257,8 +264,6 @@
                     </div>
                     <!-- This is a box ends -->
                   </div>
-
-                  <div class="swiper-slide">Slide 3</div>
                 </div>
               </div>
 
@@ -288,14 +293,6 @@
 
     <!-- Menu Toggle Script -->
     <script>
-      // ------------------------------------------------- for pre flight --------------------------------------------------------
-      var swiper = new Swiper('.swiper-container', {
-          onSlideChangeStart:function(e){
-            $('#pager').animate({"margin-left":e.activeIndex*126});
-          }
-        }
-      );
-
       // ------------------------------------------------- for the page --------------------------------------------------------
       var insideModeNow = false;
 
@@ -339,7 +336,13 @@
       $('#top5, .stages').hide();
       $('#gostage1').click(function(){
         insideMode();
-        $('#stage1').fadeIn();
+        $('#stage1').css("display","block").fadeIn();
+        var swiper = new Swiper('.swiper-container', {
+            onSlideChangeStart:function(e){
+              $('#pager').animate({"margin-left":e.activeIndex*126});
+            }
+          }
+        );
       });
       // }).click();
 

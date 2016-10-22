@@ -145,6 +145,13 @@
     $("#flight1").click(function() {
       window.location = 'flight.html';
     });
+
+    $('.flight').hide();
+    $('#flight1').css({'opacity':'0.0', "margin-left":"-20px", "margin-right":"20px"}).show().animate({'opacity':'1.0', "margin-left":"0px", "margin-right":"0px"}, 400);
+    setTimeout(function(){
+        $('#flight2').css({'opacity':'0.0', "margin-left":"-20px", "margin-right":"20px"}).show().animate({'opacity':'1.0', "margin-left":"0px", "margin-right":"0px"}, 400);
+    }, 100);
+
     </script>
 
 </body>
