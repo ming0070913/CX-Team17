@@ -59,6 +59,7 @@
         background: white;
         padding: 20px;
         margin: 0px 10px 20px 10px;
+        position: relative;
       }
       .daybox .big{
         font-size: 1.4em;
@@ -77,12 +78,22 @@
 
       .modal{
         width: 330px;
-        height: 500px;
+        height: 80%;
         background: #f7f7f7;
         margin: 0 auto;
         z-index: 99;
         overflow-y: auto;
         overflow-x: hidden;
+      }
+
+      #wrapper{
+        position:relative;
+        padding-top:60px;
+      }
+      #navbar{
+        position:fixed;;
+        top: 0px;
+        z-index: 100;
       }
 
     </style>
@@ -129,7 +140,7 @@
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
-        <div style="width: 100%; background: #016565; height: 60px; text-align: center;">
+        <div id="navbar" style="width: 100%; background: #016565; height: 60px; text-align: center;">
           <a href="#" id="backbuttonontop"><img src="img/back.png" style="width: 12px; display:block; float:left;margin-left: 16px;  margin-top: 18px;" /></a>
           <img src="img/logo.png" style="height:40px; margin-top:10px;" />
         </div>
@@ -175,15 +186,15 @@
               <div style="background:#c8c8c8;height:1px;width:100%;margin-top:84px;margin-left:0px;"></div>
               <div style="background:#c8c8c8;height:1px;width:100%;margin-top:84px;margin-left:0px;"></div>
 
-              <div id="gostage1" style="height: 200px; display:block; position:absolute;left: 100px; top:24px;color:#2c3d69;font-size:1.6em;" class="font2">
+              <div id="gostage1" style="height: 100px; display:block; position:absolute;left: 100px; top:24px;color:#2c3d69;font-size:1.6em;" class="font2">
                 Pre-Flight
               </div>
 
-              <div style="height: 200px; display:block; position:absolute;left: 100px; top:110px;color:#2c3d69;font-size:1.6em;" class="font2">
+              <div id="gostage2" style="height: 100px; display:block; position:absolute;left: 100px; top:110px;color:#2c3d69;font-size:1.6em;" class="font2">
                 On-Air
               </div>
 
-              <div style="height: 200px; display:block; position:absolute;left: 100px; top:196px;color:#2c3d69;font-size:1.6em;" class="font2">
+              <div style="height: 100px; display:block; position:absolute;left: 100px; top:196px;color:#2c3d69;font-size:1.6em;" class="font2">
                 Landing
               </div>
 
@@ -196,9 +207,9 @@
                 <div class="swiper-wrapper">
                   <!--- ====================================This is a date==================================== --->
                   <div class="swiper-slide">
-                    <div class="date"><span class="font1">Monday, 23 Oct</span> <span class="font2" style="font-size: 0.7em;">(Toady)</span></div>
+                    <div class="date"><span class="font1">Monday, 24 Oct</span> <span class="font2" style="font-size: 0.7em;">(Toady)</span></div>
                     <!-- This is a box -->
-                    <div class="daybox">
+                    <div class="daybox" onclick="$(this).slideUp();">
                       <div class="big font1">Alarm at 7 AM</div>
                       <div class="small font2">Start adjusting your sleep to avoid jet-lag</div>
                       <div class="action"><img src="img/go.png" style="height:30px" /></div>
@@ -212,7 +223,7 @@
                     </div>
                     <!-- This is a box ends -->
                     <!-- This is a box -->
-                    <div class="daybox">
+                    <div class="daybox" onclick="showModal($('#movie-picker'));">
                       <div class="big font1">Browse Movies</div>
                       <div class="small font2">Why not pick some movies for the flight</div>
                       <div class="action"><img src="img/go.png" style="height:30px" /></div>
@@ -222,9 +233,9 @@
 
                   <!--- ====================================This is a date==================================== --->
                   <div class="swiper-slide">
-                    <div class="date"><span class="font1">Tuesday, 24 Oct</span></div>
+                    <div class="date"><span class="font1">Tuesday, 25 Oct</span></div>
                     <!-- This is a box -->
-                    <div class="daybox">
+                    <div class="daybox" onclick="$(this).slideUp();">
                       <div class="big font1">Alarm at 6 AM</div>
                       <div class="small font2">Start adjusting your sleep to avoid jet-lag</div>
                       <div class="action"><img src="img/go.png" style="height:30px" /></div>
@@ -238,7 +249,7 @@
                     </div>
                     <!-- This is a box ends -->
                     <!-- This is a box -->
-                    <div class="daybox">
+                    <div class="daybox" onclick="return;$(this).slideUp();">
                       <div class="big font1">Prepare your Currency</div>
                       <div class="small font2">Remember to prepare your Pounds for UK</div>
                       <div class="action"><img src="img/go.png" style="height:30px" /></div>
@@ -248,19 +259,24 @@
 
                   <!--- ====================================This is a date==================================== --->
                   <div class="swiper-slide">
-                    <div class="date"><span class="font1">Tuesday, 25 Oct</span> <span class="font2" style="font-size: 0.7em;">(Flight)</span></div>
+                    <div class="date"><span class="font1">Tuesday, 26 Oct</span> <span class="font2" style="font-size: 0.7em;">(Flight)</span></div>
                     <!-- This is a box -->
-                    <div class="daybox">
+                    <div class="daybox" onclick="$(this).slideUp();">
                       <div class="big font1">Alarm at 5 AM</div>
                       <div class="small font2">Start adjusting your sleep to avoid jet-lag</div>
                       <div class="action"><img src="img/go.png" style="height:30px" /></div>
                     </div>
                     <!-- This is a box ends -->
                     <!-- This is a box -->
-                    <div class="daybox" onclick="showModal($('#service-picker'));">
+                    <div class="daybox" onclick="$(this).slideUp();showBoardingPass();">
                       <div class="big font1">Check-in</div>
                       <div class="small font2">Check-in your flight!</div>
                       <div class="action"><img src="img/go.png" style="height:30px" /></div>
+                    </div>
+                    <!-- This is a box ends -->
+                    <!-- This is a box -->
+                    <div class="daybox" id="boardingpass" style="height: 421px; display: none;">
+                      <img src="img/boardingpass2.png" style="width: 394px;position: absolute;top: -3px;left: -16px;" />
                     </div>
                     <!-- This is a box ends -->
                   </div>
@@ -270,6 +286,9 @@
               <div id="meal-picker" class="modal" style="">
                 <img src="img/meal.png" style="position: absolute;width: 452px;top: -74px;left: -47px;" />
               </div>
+              <div id="movie-picker" class="modal" style="">
+                <img src="img/movie.png" style="width: 330px;" />
+              </div>
               <div id="service-picker" class="modal" style="">
                 <img src="img/service.png" style="position: absolute;width: 452px;top: -74px;left: -47px;" />
               </div>
@@ -278,13 +297,41 @@
 
 
 
+            <div id="stage2" class="stages" style="position:relative;display:none;">
+              <div style="position:relative;margin-top: 20px;">
+                <span class="block font2" style="margin-bottom:10px;">Schedule your Flight</span>
+                <div style="width:41px; overflow-x:hidden;position:absolute;background:white;z-index:10;">
+                  <img src="img/cx timeline.png" style="height: 220px;" />
+                </div>
+                <div style="width:100%; overflow-x:auto;position:absolute;">
+                  <img src="img/cx timeline.png" style="height: 220px;" />
+                  <div style="position:absolute;left:947px;top:87px;height: 100px;width: 203px;" onclick="showModal($('#movie-picker2'));">
+                    <img id="cxmovie" src="img/cx timeline -  inception-02.png" style="height: 76px;display:none;" />
+                  </div>
+                </div>
+              </div>
+
+              <div style="background:#c8c8c8;height:1px;width:100%;margin-top:249px;"></div>
+
+              <img src="img/help.png" style="width:100%" />
+
+              <div id="movie-picker2" class="modal" style="z-index:99;">
+                <img src="img/movie.png" style="width: 330px;" onclick="showMovie()" />
+              </div>
+
+            </div>
+
 
 
 
         </div>
 
 
-        <div id="overlay" style="background:rgba(201, 201, 201, 0.5); position:absolute;top:0;left:0;z-index:10;height:100%;width:100%;display:none;"></div>
+        <div id="overlay" style="background:rgba(201, 201, 201, 0.5); position:absolute;top:0;left:0;z-index:10;height:10000%;width:100%;display:none;"></div>
+
+        <div id="loading" style="-webkit-border-radius: 8px;border-radius: 8px;background:rgba(242, 242, 242, 0.85);width: 200px;height:200px;z-index:99;position:absolute;top: 233px; left: 108px;display:none;">
+          <div class='uil-ellipsis-css' style='transform:scale(0.76);'><div class="ib"><div class="circle"><div></div></div><div class="circle"><div></div></div><div class="circle"><div></div></div><div class="circle"><div></div></div></div></div>
+        </div>
 
         <!-- /#page-content-wrapper -->
 
@@ -293,6 +340,18 @@
 
     <!-- Menu Toggle Script -->
     <script>
+      function showBoardingPass(){
+        $('#loading').fadeIn();
+        setTimeout(function(){
+          $('#loading').hide();
+          $('#boardingpass').slideDown();
+        }, 800);
+      }
+
+      function showMovie(){
+        $('#overlay').click();
+        $("#cxmovie").css({"opacity":"0.0", "margin-top":"-30px"}).show().animate({"opacity":"1.0", "margin-top":"0px"}, 600);
+      }
       // ------------------------------------------------- for the page --------------------------------------------------------
       var insideModeNow = false;
 
@@ -322,17 +381,6 @@
           insideModeNow = false;
       }
 
-      // ------------------------------------------------- for modal --------------------------------------------------------
-      function showModal(e){
-        $('#overlay').fadeIn(400);
-        $(e).css({"display":"block","opacity":"0.0", "margin-top":'30px'}).animate({"opacity":"1.0", "margin-top":"70px"}, 400);
-      }
-
-      $('#overlay').click(function(){
-        $('.modal').fadeOut();
-        $('#overlay').fadeOut();
-      });
-
       $('#top5, .stages').hide();
       $('#gostage1').click(function(){
         insideMode();
@@ -344,7 +392,21 @@
           }
         );
       });
-      // }).click();
+      $('#gostage2').click(function(){
+        insideMode();
+        $('#stage2').css("display","block").fadeIn();
+      });
+
+      // ------------------------------------------------- for modal --------------------------------------------------------
+      function showModal(e){
+        $('#overlay').fadeIn(400);
+        $(e).css({"display":"block","opacity":"0.0", "margin-top":'30px'}).animate({"opacity":"1.0", "margin-top":"70px"}, 400);
+      }
+
+      $('#overlay').click(function(){
+        $('.modal').fadeOut();
+        $('#overlay').fadeOut();
+      });
 
       $('#backbuttonontop').click(function(){
         if(insideModeNow) outsideMode();
