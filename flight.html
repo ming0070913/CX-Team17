@@ -81,6 +81,8 @@
         background: #f7f7f7;
         margin: 0 auto;
         z-index: 99;
+        overflow-y: auto;
+        overflow-x: hidden;
       }
 
     </style>
@@ -192,32 +194,79 @@
 
               <div class="swiper-container">
                 <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <div class="date"><span class="font1">Monday, 23 Oct</span> <span class="font2" style="font-size: 0.7em;">(Toady)</span></div>
-                  <!-- This is a box -->
-                  <div class="daybox" onclick="showModal($('#meal-picker'));">
-                    <div class="big font1">Alarm at 7 AM</div>
-                    <div class="small font2">Start adjusting your sleep to avoid jet-lag</div>
-                    <div class="action"><img src="img/go.png" style="height:30px" /></div>
+                  <!--- ====================================This is a date==================================== --->
+                  <div class="swiper-slide">
+                    <div class="date"><span class="font1">Monday, 23 Oct</span> <span class="font2" style="font-size: 0.7em;">(Toady)</span></div>
+                    <!-- This is a box -->
+                    <div class="daybox">
+                      <div class="big font1">Alarm at 7 AM</div>
+                      <div class="small font2">Start adjusting your sleep to avoid jet-lag</div>
+                      <div class="action"><img src="img/go.png" style="height:30px" /></div>
+                    </div>
+                    <!-- This is a box ends -->
+                    <!-- This is a box -->
+                    <div class="daybox" onclick="showModal($('#meal-picker'));">
+                      <div class="big font1">Meal Request</div>
+                      <div class="small font2">Customize your meal on your flight</div>
+                      <div class="action"><img src="img/go.png" style="height:30px" /></div>
+                    </div>
+                    <!-- This is a box ends -->
+                    <!-- This is a box -->
+                    <div class="daybox">
+                      <div class="big font1">Prepare your Currency</div>
+                      <div class="small font2">Remember to prepare your Pounds for UK</div>
+                      <div class="action"><img src="img/go.png" style="height:30px" /></div>
+                    </div>
+                    <!-- This is a box ends -->
                   </div>
-                  <!-- This is a box ends -->
-                  <!-- This is a box -->
-                  <div class="daybox">
-                    <div class="big font1">Meal Request</div>
-                    <div class="small font2">Customize your meal</div>
-                    <div class="action"><img src="img/go.png" style="height:30px" /></div>
+
+                  <!--- ====================================This is a date==================================== --->
+                  <div class="swiper-slide">
+                    <div class="date"><span class="font1">Tuesday, 24 Oct</span></div>
+                    <!-- This is a box -->
+                    <div class="daybox">
+                      <div class="big font1">Alarm at 6 AM</div>
+                      <div class="small font2">Start adjusting your sleep to avoid jet-lag</div>
+                      <div class="action"><img src="img/go.png" style="height:30px" /></div>
+                    </div>
+                    <!-- This is a box ends -->
+                    <!-- This is a box -->
+                    <div class="daybox" onclick="showModal($('#service-picker'));">
+                      <div class="big font1">Experience Upgrade</div>
+                      <div class="small font2">Upgrade your flight service</div>
+                      <div class="action"><img src="img/go.png" style="height:30px" /></div>
+                    </div>
+                    <!-- This is a box ends -->
                   </div>
-                  <!-- This is a box ends -->
-                </div>
 
-                <div class="swiper-slide">Slide 2</div>
+                  <!--- ====================================This is a date==================================== --->
+                  <div class="swiper-slide">
+                    <div class="date"><span class="font1">Tuesday, 25 Oct</span> <span class="font2" style="font-size: 0.7em;">(Flight)</span></div>
+                    <!-- This is a box -->
+                    <div class="daybox">
+                      <div class="big font1">Alarm at 5 AM</div>
+                      <div class="small font2">Start adjusting your sleep to avoid jet-lag</div>
+                      <div class="action"><img src="img/go.png" style="height:30px" /></div>
+                    </div>
+                    <!-- This is a box ends -->
+                    <!-- This is a box -->
+                    <div class="daybox" onclick="showModal($('#service-picker'));">
+                      <div class="big font1">Check-in</div>
+                      <div class="small font2">Check-in your flight!</div>
+                      <div class="action"><img src="img/go.png" style="height:30px" /></div>
+                    </div>
+                    <!-- This is a box ends -->
+                  </div>
 
-                <div class="swiper-slide">Slide 3</div>
+                  <div class="swiper-slide">Slide 3</div>
                 </div>
               </div>
 
               <div id="meal-picker" class="modal" style="">
-                pick it
+                <img src="img/meal.png" style="position: absolute;width: 452px;top: -74px;left: -47px;" />
+              </div>
+              <div id="service-picker" class="modal" style="">
+                <img src="img/service.png" style="position: absolute;width: 452px;top: -74px;left: -47px;" />
               </div>
 
             </div>
