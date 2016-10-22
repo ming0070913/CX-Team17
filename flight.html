@@ -34,9 +34,6 @@
         margin-bottom: 30px;
         background: white;
       }
-      #page-content-wrapper{
-        padding: 30px 0;
-      }
     </style>
 
     <link href="css/all.css" rel="stylesheet">
@@ -82,27 +79,19 @@
 
         <!-- Page Content -->
         <div style="width: 100%; background: #016565; height: 60px; text-align: center;">
+          <a href="index.html"><img src="img/back.png" style="width: 12px; display:block; float:left;margin-left: 16px;  margin-top: 18px;" /></a>
           <img src="img/logo.png" style="height:40px; margin-top:10px;" />
         </div>
 
         <div id="page-content-wrapper">
             <div class="container-fluid">
-
-              <span class="block font2" style="margin-bottom: 20px;font-size:1.5em;width: 100%;">
-                Personalize your Flight
-              </span>
-
-              <div class="flight" id="flight1">
                 <div class="row">
-                    <div class="col-xs-3 font1 text-center" style="padding-left: 20px;padding-top: 9px;">
-                      <img src="img/london.png" style="height:75px;" />
-                      <span class="block blod font2 text-center" style="font-size: 1.0em; width:100%;margin-top: 5px;">CX255</span>
-                    </div>
-                    <div class="col-xs-9 font1" style="padding: 15px 40px 15px 10px ">
-                      <span class="block text-right" style="font-size:1.2em;color:#006b6e">Wed, 26 Oct</span>
+                    <div class="col-xs-12 font1" style="padding: 15px 60px 15px 30px ">
+                      <span class="block text-left" style="font-size:1.6em;color:#006b6e">CX255</span>
+                      <span class="block text-left" style="font-size:1.2em;color:black">Wed, 26 Oct</span>
                       <span class="block font2 text-center" style="font-size:1.9em;">
                         <span style="float:left">HKG</span>
-                        <img src="img/to.png" style="height:17px;margin: 0 10px;" />
+                        <img id="to" src="img/to.png" style="height:17px;margin: 0 10px;" />
                         <span style="float:right">LHR</span>
                       </span>
                       <span class="block font2" style="font-size:1.2em;">
@@ -111,40 +100,65 @@
                       </span>
                     </div>
                 </div>
+            </div>
+
+
+
+            <div style="background:#c8c8c8;height:1px;width:100%;margin-top:10px;"></div>
+
+            <div class="container-fluid font2" style="margin: 16px 12px;">
+              Jet-Lag Fighter
+              <div style="float:right"><img src="img/onoff.png" style="height:22px;" /></div>
+            </div>
+
+
+            <div class="container-fluid" style="position:relative">
+              <img src="img/dots.png" style="height: 200px; display:block; position:absolute;left: 40px;top:26px;" />
+
+              <div style="background:#c8c8c8;height:1px;width:100%;margin-top:0px;margin-left:0px;"></div>
+              <div style="background:#c8c8c8;height:1px;width:100%;margin-top:75px;margin-left:0px;"></div>
+              <div style="background:#c8c8c8;height:1px;width:100%;margin-top:84px;margin-left:0px;"></div>
+              <div style="background:#c8c8c8;height:1px;width:100%;margin-top:84px;margin-left:0px;"></div>
+
+              <div style="height: 200px; display:block; position:absolute;left: 100px; top:24px;color:#2c3d69;font-size:1.6em;" class="font2">
+                Pre-Flight
               </div>
 
-              <div class="flight" id="flight2">
-                <div class="row">
-                    <div class="col-xs-3 font1 text-center" style="padding-left: 20px;padding-top: 19px;">
-                      <img src="img/hk.png" style="height:60px;" />
-                      <span class="block bold font2 text-center" style="font-size: 1.0em; width: 100%; margin-top: 5px;">CX2556</span>
-                    </div>
-                    <div class="col-xs-9 font1" style="padding: 15px 40px 15px 10px ">
-                      <span class="block text-right" style="font-size:1.2em;color:#006b6e">Sat, 12 Nov</span>
-                      <span class="block font2 text-center" style="font-size:1.9em;">
-                        <span style="float:left">LHR</span>
-                        <img src="img/to.png" style="height:17px;margin: 0 10px;" />
-                        <span style="float:right">HKG</span>
-                      </span>
-                      <span class="block font2" style="font-size:1.2em;">
-                        <span style="float:left">22:30 GMT</span>
-                        <span style="float:right">17:10 HKT</span>
-                      </span>
-                    </div>
-                </div>
+              <div style="height: 200px; display:block; position:absolute;left: 100px; top:110px;color:#2c3d69;font-size:1.6em;" class="font2">
+                On-Air
+              </div>
+
+              <div style="height: 200px; display:block; position:absolute;left: 100px; top:196px;color:#2c3d69;font-size:1.6em;" class="font2">
+                Landing
               </div>
 
             </div>
+
         </div>
+
+
+
         <!-- /#page-content-wrapper -->
 
     </div>
+    <!-- /#wrapper -->
 
     <!-- Menu Toggle Script -->
     <script>
-    $("#flight1").click(function() {
-      window.location = 'flight.html';
-    });
+    function flying(){
+        $('#to').animate({
+          "margin-bottom": "+=7"
+        }, 300+Math.round(Math.random()*300), function() {
+          // Animation complete.
+        }).animate({
+          "margin-bottom": "-=7"
+        }, 300+Math.round(Math.random()*300), function() {
+          setTimeout(function(){flying();}, Math.round(Math.random()*1000));
+        });
+    }
+      $(document).ready(function(){
+        flying();
+      });
     </script>
 
 </body>
