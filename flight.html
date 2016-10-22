@@ -61,7 +61,7 @@
         margin: 0px 10px 20px 10px;
       }
       .daybox .big{
-        font-size: 1.6em;
+        font-size: 1.4em;
         color: #222222;
       }
       .daybox .small{
@@ -72,7 +72,7 @@
       .daybox .action{
         display:block;
         float:right;
-        margin-top: -48px;
+        margin-top: -39px;
       }
 
     </style>
@@ -120,7 +120,7 @@
 
         <!-- Page Content -->
         <div style="width: 100%; background: #016565; height: 60px; text-align: center;">
-          <a href="index.html"><img src="img/back.png" style="width: 12px; display:block; float:left;margin-left: 16px;  margin-top: 18px;" /></a>
+          <a href="#" id="backbuttonontop"><img src="img/back.png" style="width: 12px; display:block; float:left;margin-left: 16px;  margin-top: 18px;" /></a>
           <img src="img/logo.png" style="height:40px; margin-top:10px;" />
         </div>
 
@@ -132,7 +132,6 @@
                       <span id="top2" class="block text-left" style="font-size:1.2em;color:black">Wed, 26 Oct</span>
                       <span id="top5" class="font2 text-center" style="font-size:0.9em;">
                         <span style="float:left">HKG 00:25</span>
-                        <img id="to" src="img/to.png" style="height:6px;margin: 0 10px;" />
                         <span style="float:right">LHR 06:20</span>
                       </span>
                       <span id="top3" class="block font2 text-center" style="font-size:1.9em;">
@@ -158,7 +157,7 @@
             </div>
 
 
-            <div id="stages" class="container-fluid" style="position:relative">
+            <div id="stageactions" class="container-fluid" style="position:relative">
               <img src="img/dots.png" style="height: 200px; display:block; position:absolute;left: 40px;top:26px;" />
 
               <div style="background:#c8c8c8;height:1px;width:100%;margin-top:0px;margin-left:0px;"></div>
@@ -180,7 +179,7 @@
 
             </div>
 
-            <div id="stage1" style="position:relative">
+            <div id="stage1" class="stages" style="position:relative;">
               <div id="pager" style="width:33%;height:10px;background:#7c133c;margin-top:3px;"></div>
 
               <div class="swiper-container">
@@ -191,13 +190,24 @@
                   <div class="daybox">
                     <div class="big font1">Alarm at 7 AM</div>
                     <div class="small font2">Start adjusting your sleep to avoid jet-lag</div>
-                    <div class="action"><img src="img/go.png" style="height:50px" /></div>
+                    <div class="action"><img src="img/go.png" style="height:30px" /></div>
                   </div>
+                  <!-- This is a box ends -->
+                  <!-- This is a box -->
+                  <div class="daybox">
+                    <div class="big font1">Meal Request</div>
+                    <div class="small font2">Customize your meal</div>
+                    <div class="action"><img src="img/go.png" style="height:30px" /></div>
+                  </div>
+                  <!-- This is a box ends -->
                 </div>
+
                 <div class="swiper-slide">Slide 2</div>
+
                 <div class="swiper-slide">Slide 3</div>
                 </div>
               </div>
+
             </div>
 
 
@@ -216,14 +226,14 @@
 
     <!-- Menu Toggle Script -->
     <script>
+      var insideModeNow = false;
 
-        var swiper = new Swiper('.swiper-container', {
-            onSlideChangeStart:function(e){
-              $('#pager').animate({"margin-left":e.activeIndex*126});
-
-            }
+      var swiper = new Swiper('.swiper-container', {
+          onSlideChangeStart:function(e){
+            $('#pager').animate({"margin-left":e.activeIndex*126});
           }
-        );
+        }
+      );
 
       function insideMode(){
           $('#to').hide();
@@ -232,16 +242,36 @@
           $('#top2').css("display","inline").animate({"font-size": "0.9em", "margin":"0 0 6px 0px"}, 300);
           $('#top5').fadeIn(500);
           $('#top4, #top3').slideUp(100, function(){});
-          $('#lag, #stages').slideUp(100);
+          $('#lag, #stageactions').slideUp(100);
           $('#divider').animate({'margin':'0'});
+          insideModeNow = true;
       }
 
-      $('#top5').hide();
+      function outsideMode(){
+          $('.stages').fadeOut(100, function(){
+            $('#to').show();
+            $('#top').animate({padding: "15px 60px 15px 30px"}, 400);
+            $('#top1').css({"display":"block"}).animate({"font-size": "1.6em", "width":"100%", "margin":"0 0 0px 0"}, 300);
+            $('#top2').css("display","block").animate({"font-size": "1.2em", "margin":"0 0 6px 0px"}, 300);
+            $('#top5').fadeOut(100);
+            $('#top4, #top3').fadeIn(300, function(){});
+            $('#lag, #stageactions').fadeIn(300);
+            $('#divider').animate({'margin':'0'});
+          });
+          insideModeNow = false;
+      }
+
+      $('#top5, .stages').hide();
       $('#gostage1').click(function(){
         insideMode();
-      // });
-      }).click();
+        $('#stage1').fadeIn();
+      });
+      // }).click();
 
+      $('#backbuttonontop').click(function(){
+        if(insideModeNow) outsideMode();
+        else window.location = "index.html";
+      });
 
 
       function flying(){
