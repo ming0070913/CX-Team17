@@ -179,7 +179,7 @@
 
 
             <div id="stageactions" class="container-fluid" style="position:relative">
-              <img src="img/dots.png" style="height: 200px; display:block; position:absolute;left: 40px;top:26px;" />
+              <img id="dots" src="img/dots.png" style="height: 200px; display:block; position:absolute;left: 40px;top:26px;" />
 
               <div style="background:#c8c8c8;height:1px;width:100%;margin-top:0px;margin-left:0px;"></div>
               <div style="background:#c8c8c8;height:1px;width:100%;margin-top:75px;margin-left:0px;"></div>
@@ -194,7 +194,7 @@
                 On-Air
               </div>
 
-              <div style="height: 100px; display:block; position:absolute;left: 100px; top:196px;color:#2c3d69;font-size:1.6em;" class="font2">
+              <div id="gostage3" style="height: 100px; display:block; position:absolute;left: 100px; top:196px;color:#2c3d69;font-size:1.6em;" class="font2">
                 Landing
               </div>
 
@@ -413,7 +413,7 @@
         else window.location = "index.html";
       });
 
-      // ------------------------------------------------- for the page --------------------------------------------------------
+      // ------------------------------------------------- for page Animation --------------------------------------------------------
 
       function flying(){
           $('#to').animate({
@@ -429,6 +429,13 @@
       $(document).ready(function(){
         flying();
       });
+
+      $('#dots, #gostage1, #gostage2, #gostage3').hide();
+      $('#dots').fadeIn(500);
+      $('#gostage1').css({"display":"block","opacity":"0.0", "margin-left":'20px'}).animate({"opacity":"1.0", "margin-left":"0px"}, 400);
+      setTimeout(function(){$('#gostage2').css({"display":"block","opacity":"0.0", "margin-left":'20px'}).show().animate({"opacity":"1.0", "margin-left":'0px'}, 400);}, 100);
+      setTimeout(function(){$('#gostage3').css({"display":"block","opacity":"0.0", "margin-left":'20px'}).show().animate({"opacity":"1.0", "margin-left":'0px'}, 400);}, 200);
+
     </script>
 
 </body>
