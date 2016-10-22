@@ -75,6 +75,14 @@
         margin-top: -39px;
       }
 
+      .modal{
+        width: 330px;
+        height: 500px;
+        background: #f7f7f7;
+        margin: 0 auto;
+        z-index: 99;
+      }
+
     </style>
 
     <link href="css/all.css" rel="stylesheet">
@@ -187,7 +195,7 @@
                 <div class="swiper-slide">
                   <div class="date"><span class="font1">Monday, 23 Oct</span> <span class="font2" style="font-size: 0.7em;">(Toady)</span></div>
                   <!-- This is a box -->
-                  <div class="daybox">
+                  <div class="daybox" onclick="showModal($('#meal-picker'));">
                     <div class="big font1">Alarm at 7 AM</div>
                     <div class="small font2">Start adjusting your sleep to avoid jet-lag</div>
                     <div class="action"><img src="img/go.png" style="height:30px" /></div>
@@ -208,6 +216,10 @@
                 </div>
               </div>
 
+              <div id="meal-picker" class="modal" style="">
+                pick it
+              </div>
+
             </div>
 
 
@@ -218,6 +230,7 @@
         </div>
 
 
+        <div id="overlay" style="background:rgba(201, 201, 201, 0.5); position:absolute;top:0;left:0;z-index:10;height:100%;width:100%;display:none;"></div>
 
         <!-- /#page-content-wrapper -->
 
@@ -226,14 +239,16 @@
 
     <!-- Menu Toggle Script -->
     <script>
-      var insideModeNow = false;
-
+      // ------------------------------------------------- for pre flight --------------------------------------------------------
       var swiper = new Swiper('.swiper-container', {
           onSlideChangeStart:function(e){
             $('#pager').animate({"margin-left":e.activeIndex*126});
           }
         }
       );
+
+      // ------------------------------------------------- for the page --------------------------------------------------------
+      var insideModeNow = false;
 
       function insideMode(){
           $('#to').hide();
@@ -261,6 +276,17 @@
           insideModeNow = false;
       }
 
+      // ------------------------------------------------- for modal --------------------------------------------------------
+      function showModal(e){
+        $('#overlay').fadeIn(400);
+        $(e).css({"display":"block","opacity":"0.0", "margin-top":'30px'}).animate({"opacity":"1.0", "margin-top":"70px"}, 400);
+      }
+
+      $('#overlay').click(function(){
+        $('.modal').fadeOut();
+        $('#overlay').fadeOut();
+      });
+
       $('#top5, .stages').hide();
       $('#gostage1').click(function(){
         insideMode();
@@ -273,6 +299,7 @@
         else window.location = "index.html";
       });
 
+      // ------------------------------------------------- for the page --------------------------------------------------------
 
       function flying(){
           $('#to').animate({
