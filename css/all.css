@@ -1,3 +1,18 @@
+.font1{
+  font-family: 'Montserrat', sans-serif;
+}
+.font2{
+    font-family: 'Raleway', sans-serif;
+}
+.block{
+  display: block;
+}
+.bold{
+  font-weight: bold;
+}
+
+
+
 @-webkit-keyframes uil-ellipsis {
   0% {
     -ms-transform: scale(0);
