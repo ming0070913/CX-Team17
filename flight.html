@@ -331,11 +331,10 @@
               <div style="background:#c8c8c8;height:1px;width:100%;margin-top:10px;"></div>
 
               <span class="font2" style="font-size:1.0em;display:block;margin: 18px 20px 0 20px;color:black;" >Airport Map:</span>
-              <img src="img/airportmap.png" style="width: 100%;margin-top:0px;" />
+              <img id="airportmap" src="img/airportmap.png" style="width: 100%;margin-top:0px;" />
               <img src="img/baggage status.png" style="width: 90%;display:block;margin:0 auto;" />
 
             </div>
-
 
         </div>
 
@@ -357,6 +356,13 @@
     </div>
     <!-- /#wrapper -->
 
+    <div id="noti" class="font2" style="background:#f8f8f8;-webkit-border-radius: 5px;border-radius: 5px;padding:25px;position:absolute;z-index:1000;top: 20px;width: 95%;left: 2.5%;color:#858383;display:none">
+      <span style="font-weight:800;font-size:1.2em;display:block;margin-bottom:7px;color:black;">My CX</span>
+      The boarding gate for your flight CX255 has been changed to Gate 10.
+    </div>
+
+    <div id="overlay2" style="background:rgba(17, 17, 17, 0.6); position:absolute;top:0;left:0;z-index:999;height:200%;width:100%;display:none"></div>
+
     <!-- Menu Toggle Script -->
     <script>
       function showBoardingPass(){
@@ -371,6 +377,19 @@
         $('#overlay').click();
         $("#cxmovie").css({"opacity":"0.0", "margin-top":"-30px"}).show().animate({"opacity":"1.0", "margin-top":"0px"}, 600);
       }
+
+      // ------------------------------------------------- for notification --------------------------------------------------------
+      $("#airportmap").click(function(){
+        $("#overlay2").fadeIn(300);
+        setTimeout(function(){
+            $('#noti').css({'opacity':'0.0', "margin-top":"-20px"}).show().animate({'opacity':'1.0',  "margin-top":"0px"}, 200);
+        }, 200);
+      });
+
+      $("#overlay2").click(function(){
+        $("#overlay2, #noti").fadeOut();
+      });
+
       // ------------------------------------------------- for the page --------------------------------------------------------
       var insideModeNow = false;
 
