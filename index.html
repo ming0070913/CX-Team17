@@ -20,24 +20,6 @@
     <script src="js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway" rel="stylesheet">
-    <style>
-      body{
-        background: #fcfcfc;
-      }
-      .flight{
-        border: 1px solid #c1c1c1;
-        -webkit-border-radius: 4px;
-        border-radius: 4px;
-        -webkit-box-shadow: 1px 1px 6px 2px #f4f4f4;
-        box-shadow: 2px 2px 6px 3px #f4f4f4;
-        padding: 10px;
-        margin-bottom: 30px;
-        background: white;
-      }
-      #page-content-wrapper{
-        padding: 30px 0;
-      }
-    </style>
 
     <link href="css/all.css" rel="stylesheet">
 
@@ -81,104 +63,42 @@
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
-        <div style="width: 100%; background: #016565; height: 60px; text-align: center;">
-          <img src="img/logo.png" style="height:40px; margin-top:10px;" />
-        </div>
-
         <div id="page-content-wrapper">
             <div class="container-fluid">
-              <span class="block font1" style="margin-bottom: 2px;font-size:1.5em;width: 100%;">
-                Welcome
-                <span class="font1" style="">
-                  Mr. Choi
-                </span>
-                !
-              </span>
-
-              <span class="block font2" style="margin-bottom: 20px;font-size:1.3em;width: 100%;">
-                Personalize your Flight.
-              </span>
-
-              <div class="flight" id="flight1">
                 <div class="row">
-                    <div class="col-xs-3 font1 text-center" style="padding-left: 20px;padding-top: 9px;">
-                      <img src="img/london.png" style="height:75px;" />
-                      <span class="block blod font2 text-center" style="font-size: 1.0em; width:100%;margin-top: 5px;">CX255</span>
-                    </div>
-                    <div class="col-xs-9 font1" style="padding: 15px 40px 15px 10px ">
-                      <span class="block text-right" style="font-size:1.0em;color:#006b6e">Wed, 26 Oct</span>
-                      <span class="block font2 text-center" style="font-size:1.9em;">
-                        <span style="float:left">HKG</span>
-                        <img src="img/to.png" style="height:17px;margin: 0 10px;" />
-                        <span style="float:right">LHR</span>
-                      </span>
-                      <span class="block font2" style="font-size:1.2em;">
-                        <span style="float:left">00:25 HKT</span>
-                        <span style="float:right">06:20 GMT</span>
-                      </span>
+                    <div class="col-lg-12">
+                      <img src="img/logo_signin.jpg" style="width: 200px; display:block; margin: 0 auto; margin-top:80px;" />
                     </div>
                 </div>
-              </div>
-
-              <div class="flight" id="flight2">
-                <div class="row">
-                    <div class="col-xs-3 font1 text-center" style="padding-left: 20px;padding-top: 19px;">
-                      <img src="img/hk.png" style="height:60px;" />
-                      <span class="block bold font2 text-center" style="font-size: 1.0em; width: 100%; margin-top: 5px;">CX2556</span>
-                    </div>
-                    <div class="col-xs-9 font1" style="padding: 15px 40px 15px 10px ">
-                      <span class="block text-right" style="font-size:1.0em;color:#006b6e">Sat, 12 Nov</span>
-                      <span class="block font2 text-center" style="font-size:1.9em;">
-                        <span style="float:left">LHR</span>
-                        <img src="img/to.png" style="height:17px;margin: 0 10px;" />
-                        <span style="float:right">HKG</span>
-                      </span>
-                      <span class="block font2" style="font-size:1.2em;">
-                        <span style="float:left">22:30 GMT</span>
-                        <span style="float:right">17:10 HKT</span>
-                      </span>
+                <div class="row" style="margin-top: 70px; padding: 0 40px 0 40px;">
+                    <div class="col-lg-12">
+                      <input type="text" class="form-control font2" style="font-size: 1.1em;padding-left:20px;" value="ming.choi@gmail.com" />
+                      <input type="password" class="form-control" value="aaxaaaa"  style="font-size: 1.1em;padding-left:20px;margin-top: 20px;" />
+                      <a id="login" class="btn btn-default btn-lg" style="display:block;margin:0 auto;margin-top: 40px;width: 80px;" href="#" data-transition="slide" />Login</a>
                     </div>
                 </div>
-              </div>
-
-
-              <div id="shownoti" style="width:100%;height:150px;"></div>
             </div>
 
-            <div id="noti" class="font2" style="background:#f8f8f8;-webkit-border-radius: 5px;border-radius: 5px;padding:25px;position:absolute;z-index:99;top: -29px;width: 95%;left: 2.5%;color:#858383;display:none">
-              <span style="font-weight:800;font-size:1.2em;display:block;margin-bottom:7px;color:black;">My CX</span>
-              The boarding gate for your flight CX255 has been changed to Gate 10.
+            <div id="loading" style="-webkit-border-radius: 8px;border-radius: 8px;background:rgba(242, 242, 242, 0.85);width: 200px;height:200px;z-index:99;position:absolute;top: 233px; left: 108px;">
+              <div class='uil-ellipsis-css' style='transform:scale(0.76);'><div class="ib"><div class="circle"><div></div></div><div class="circle"><div></div></div><div class="circle"><div></div></div><div class="circle"><div></div></div></div></div>
             </div>
-
-            <div id="overlay" style="background:rgba(17, 17, 17, 0.6); position:absolute;top:0;left:0;z-index:98;height:200%;width:100%;display:none"></div>
         </div>
+
         <!-- /#page-content-wrapper -->
 
     </div>
-
-    <!-- Menu Toggle Script -->
+    <!-- /#wrapper -->
     <script>
-    $("#shownoti").click(function(){
-      $("#overlay").fadeIn(300);
-      setTimeout(function(){
-          $('#noti').css({'opacity':'0.0', "margin-top":"-20px"}).show().animate({'opacity':'1.0',  "margin-top":"0px"}, 200);
-      }, 200);
-    });
-
-    $("#overlay").click(function(){
-      $("#overlay, #noti").fadeOut();
-    });
-
-    $("#flight1").click(function() {
-      window.location = 'flight.html';
-    });
-
-    $('.flight').hide();
-    $('#flight1').css({'opacity':'0.0', "margin-left":"-20px", "margin-right":"20px"}).show().animate({'opacity':'1.0', "margin-left":"0px", "margin-right":"0px"}, 400);
-    setTimeout(function(){
-        $('#flight2').css({'opacity':'0.0', "margin-left":"-20px", "margin-right":"20px"}).show().animate({'opacity':'1.0', "margin-left":"0px", "margin-right":"0px"}, 400);
-    }, 100);
-
+      $(document).ready(function(){
+        $("#loading").hide();
+        $('#login').click(function(){
+          $("#loading").fadeIn();
+          setTimeout(function(){
+            window.location = "allflights.html"
+          }, 1000);
+          return false;
+        });
+      });
     </script>
 
 </body>
