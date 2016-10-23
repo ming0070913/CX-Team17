@@ -107,33 +107,27 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <div id="sidebar-wrapper">
+        <div id="sidebar-wrapper" style="background:#2c3d69;">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
                     <a href="#">
-                        Start Bootstrap
+                        Welcome Mr. Choi
                     </a>
                 </li>
                 <li>
                     <a href="#">Dashboard</a>
                 </li>
                 <li>
-                    <a href="#">Shortcuts</a>
+                    <a href="#">My Flights</a>
                 </li>
                 <li>
-                    <a href="#">Overview</a>
+                    <a href="#">Settings</a>
                 </li>
                 <li>
-                    <a href="#">Events</a>
+                  &nbsp;
                 </li>
                 <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
+                    <a href="#" onclick="$('#menubutton').click();showModal($('#pair'));">Connect with IFE</a>
                 </li>
             </ul>
         </div>
@@ -142,6 +136,7 @@
         <!-- Page Content -->
         <div id="navbar" style="width: 100%; background: #016565; height: 60px; text-align: center;">
           <a href="#" id="backbuttonontop"><img src="img/back.png" style="width: 12px; display:block; float:left;margin-left: 16px;  margin-top: 18px;" /></a>
+          <a href="#" id="menubutton"><img src="img/menu.png" style="width: 30px; display:block; float:right;margin-right: 16px;  margin-top: 15px;" /></a>
           <img src="img/logo.png" style="height:40px; margin-top:10px;" />
         </div>
 
@@ -296,7 +291,6 @@
             </div>
 
 
-
             <div id="stage2" class="stages" style="position:relative;display:none;">
               <div style="position:relative;margin-top: 20px;">
                 <span class="block font2" style="margin-bottom:10px;">Schedule your Flight</span>
@@ -305,7 +299,7 @@
                 </div>
                 <div style="width:100%; overflow-x:auto;position:absolute;">
                   <img src="img/cx timeline.png" style="height: 220px;" />
-                  <div style="position:absolute;left:947px;top:87px;height: 100px;width: 203px;" onclick="showModal($('#movie-picker2'));">
+                  <div style="position:absolute;left:955px;top:87px;height: 100px;width: 203px;" onclick="showModal($('#movie-picker2'));">
                     <img id="cxmovie" src="img/cx timeline -  inception-02.png" style="height: 76px;display:none;" />
                   </div>
                 </div>
@@ -335,10 +329,14 @@
             </div>
 
 
-
-
         </div>
 
+        <div id="pair" class="modal text-center" style="z-index:99;height:100px;top:200px;padding:10px;padding-top:30px;">
+          <span class="font2">
+            <span class="font1">Pair up with IFE (How to?):</span><br />
+            Passcode: 2791623
+          </span>
+        </div>
 
         <div id="overlay" style="background:rgba(201, 201, 201, 0.5); position:absolute;top:0;left:0;z-index:10;height:10000%;width:100%;display:none;"></div>
 
@@ -428,6 +426,7 @@
       $('#backbuttonontop').click(function(){
         if(insideModeNow) outsideMode();
         else window.location = "index.html";
+        return false;
       });
 
       // ------------------------------------------------- for page Animation --------------------------------------------------------
@@ -453,6 +452,11 @@
       setTimeout(function(){$('#gostage2').css({"display":"block","opacity":"0.0", "margin-left":'20px'}).show().animate({"opacity":"1.0", "margin-left":'0px'}, 400);}, 100);
       setTimeout(function(){$('#gostage3').css({"display":"block","opacity":"0.0", "margin-left":'20px'}).show().animate({"opacity":"1.0", "margin-left":'0px'}, 400);}, 200);
 
+
+      $("#menubutton").click(function(e) {
+          e.preventDefault();
+          $("#wrapper").toggleClass("toggled");
+      });
     </script>
 
 </body>
